@@ -1,2 +1,191 @@
 
 /* Your CSS Code here. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #141e30,
+        #243b55
+    );
+
+    font-family: Arial, sans-serif;
+}
+
+/* Scene */
+.scene-1 {
+    width: 200px;
+    height: 200px;
+
+    perspective: 800px;
+}
+
+/* Cube */
+.cube-1 {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    animation: rotateCube 10s infinite linear;
+}
+
+/* All cube faces */
+.face {
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    border: 3px solid white;
+
+    color: white;
+
+    text-align: center;
+
+    opacity: 0.95;
+
+    backface-visibility: visible;
+}
+
+/* Front */
+.front {
+    background: #e74c3c;
+
+    transform: translateZ(100px);
+}
+
+/* Back */
+.back {
+    background: #3498db;
+
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+/* Left */
+.left {
+    background: #2ecc71;
+
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+/* Right */
+.right {
+    background: #9b59b6;
+
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+/* Top */
+.top {
+    background: #f39c12;
+
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+/* Bottom */
+.bottom {
+    background: #1abc9c;
+
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Face typography */
+.face h2 {
+    margin: 0 0 15px;
+    font-size: 22px;
+}
+
+.face p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Cube animation */
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    25% {
+        transform: rotateX(90deg) rotateY(90deg);
+    }
+
+    50% {
+        transform: rotateX(180deg) rotateY(180deg);
+    }
+
+    75% {
+        transform: rotateX(270deg) rotateY(270deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .scene-1 {
+        width: 160px;
+        height: 160px;
+
+        perspective: 650px;
+    }
+
+    .face {
+        width: 160px;
+        height: 160px;
+    }
+
+    .front {
+        transform: translateZ(80px);
+    }
+
+    .back {
+        transform: rotateY(180deg) translateZ(80px);
+    }
+
+    .left {
+        transform: rotateY(-90deg) translateZ(80px);
+    }
+
+    .right {
+        transform: rotateY(90deg) translateZ(80px);
+    }
+
+    .top {
+        transform: rotateX(90deg) translateZ(80px);
+    }
+
+    .bottom {
+        transform: rotateX(-90deg) translateZ(80px);
+    }
+
+    .face h2 {
+        font-size: 18px;
+    }
+
+    .face p {
+        font-size: 12px;
+    }
+}
